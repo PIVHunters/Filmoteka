@@ -1,0 +1,21 @@
+{
+  "name": "filmoteka",
+  "version": "1.0.0",
+  "description": "Site for collecting whatched films",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "nodemon server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "filmoteka"
+  ],
+  "author": "PIVhunters",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22",
+    "pg": "^8.10.0"
+  }
+}

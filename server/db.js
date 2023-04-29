@@ -1,7 +1,7 @@
-const Pool = require('pg').Pool
+const {Pool} = require('pg').Pool //Реализация подключения к бд с помощью pool
 const pool = new Pool({
-    user: "postgress",
-    password: 'postgress',
+    user: "postgres",
+    password: 'postgres',
     host: 'localhost',
     port: 5432,
     database: 'filmoteka'

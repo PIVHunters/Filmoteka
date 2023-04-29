@@ -1,3 +1,4 @@
+require('dotenv').config() //Подключаем библиотеку переменных окружения
 const express = require('express'); //Подключаем модуль express
 
 const server = express(); // Создание экземпляра express

@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+html, body {
+    height: 100%;
+    background: #1F1F1F;
+}
+
+#root {
+    height: 100%;
+    --text-color: white;
+    --title-color: #2591F5;
+    --data-color: #929292;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100%;
+    max-width: 1300px;
+    background: #292929;
+    margin: 0 auto;
+    padding: 60px 36px 0;
+
+}
+
+span {
+    font-size: 10pt;
+}

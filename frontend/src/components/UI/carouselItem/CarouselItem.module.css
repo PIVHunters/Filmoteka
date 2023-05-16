@@ -1,0 +1,28 @@
+.item {
+    width: calc(12.5% - 14px);
+
+}
+
+.item__picture {
+    width: 100%;
+    max-width: 100%;
+    aspect-ratio: 2/3;
+    background: #D9D9D9;
+}
+
+.picture-wrapper {
+    overflow: hidden;
+    max-height: 210px;
+}
+
+.item__name {
+    color: var(--text-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 11pt;
+}
+
+@media (max-width: 1200px) {
+    
+}

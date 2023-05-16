@@ -1,0 +1,17 @@
+.news {
+
+}
+
+.news__header {
+    color: #2591F5;
+    padding: 18px 0;
+    font-size: 18pt;
+}
+
+.news__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -18px;
+    overflow: hidden;
+}
+

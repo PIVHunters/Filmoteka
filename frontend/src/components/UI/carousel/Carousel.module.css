@@ -1,0 +1,15 @@
+.coming-out {
+
+}
+
+.coming-out__header {
+    color: var(--title-color);
+    padding: 18px 0;
+    font-size: 18pt;
+}
+
+.coming-out__items {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+}

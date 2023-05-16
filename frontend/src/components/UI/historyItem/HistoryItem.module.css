@@ -1,0 +1,33 @@
+.item {
+    display: flex;
+    margin: 6px 2px;
+    overflow: hidden;
+    padding: 2%;
+    width: 300px;
+}
+
+.pic-wrapper {
+    width: 16%;
+    overflow: hidden;
+    margin-right: 6%;
+}
+
+.pic {
+    width: 100%;
+}
+
+.title {
+
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2% 0;
+}
+
+.misc {
+    color: var(--data-color);
+    text-overflow: ellipsis;
+}

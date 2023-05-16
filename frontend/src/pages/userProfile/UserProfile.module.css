@@ -1,0 +1,50 @@
+.wrapper {
+    margin-top: 72px;
+}
+
+.history {
+    float: right;
+    width: 300px;
+    margin-left: 56px;
+
+}
+
+.history__title {
+    font-size: 14pt;
+    text-align: center;
+    white-space: nowrap;
+    color: var(--title-color);
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.avatar-wrapper {
+    border-radius: 50%;
+    width: 140px;
+    overflow: hidden;
+    aspect-ratio: 1;
+    margin-right: 36px;
+}
+
+.avatar {
+    width: 100%;
+}
+
+.nickname {
+    font-size: 18pt;
+}
+
+.data {
+    font-size: 10pt;
+    margin-left: 36px;
+}
+
+.active-time {
+    margin: 36px 0;
+    font-size: 14pt;
+}
+
+

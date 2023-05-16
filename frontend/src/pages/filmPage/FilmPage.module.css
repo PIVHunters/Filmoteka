@@ -1,0 +1,68 @@
+.title {
+    padding: 18px 0 4px;
+    font-size: 18pt;
+}
+
+.breadcrumbs {
+    color: #929292;
+    font-size: 12pt;
+    margin-bottom: 18px;
+}
+
+.full-info-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 36px;
+}
+
+.left-info{
+    display: flex;
+}
+
+.picture-wrapper {
+    max-width: 250px;
+    overflow: hidden;
+    margin-right: 48px;
+}
+
+.picture {
+    width: 100%;
+}
+
+.info {
+
+}
+
+.text__title {
+    font-size: 16pt;
+    margin-bottom: 12px;
+}
+
+.info__text {
+    margin: 6px 0;
+}
+
+.rating-wrapper {
+}
+
+.rating {
+    font-size: 18pt;
+    text-decoration: underline 1px;
+}
+
+.rating::after {
+    content: '  ▼';
+    font-size: 14pt;
+}
+
+.description {
+
+}
+
+.description__title {
+    font-size: 18pt;
+}
+
+.description__text {
+
+}

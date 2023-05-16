@@ -1,6 +1,10 @@
 import React from 'react';
 import cl from "./Footer.module.css"
 
+/**
+ * Подвал страницы
+ * @returns {JSX.Element} HTML-код компонента
+ */
 const Footer = () => {
     return (
         <div className={cl["footer-wrapper"]}>

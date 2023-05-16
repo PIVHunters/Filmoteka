@@ -1,0 +1,15 @@
+.select-block__item {
+    color: var(--text-color);
+    list-style: none;
+    padding: 4px 16px;
+    transition-duration: .2s;
+}
+
+.select-block__item:hover {
+    background-color: rgba(80, 80, 80, 0.4);
+    transition-delay: 0s;
+}
+
+.filter__checkbox {
+    margin-right: 10px;
+}

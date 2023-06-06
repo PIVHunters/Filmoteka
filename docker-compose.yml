@@ -29,8 +29,6 @@ services:
       - postgres
     ports:
       - "127.0.0.1:5050:80"
-    volumes:
-      - ./db/pgadmin:/var/lib/pgadmin:rw
     environment:
       PGADMIN_DEFAULT_EMAIL: postgres@test.ru
       PGADMIN_DEFAULT_PASSWORD: postgres

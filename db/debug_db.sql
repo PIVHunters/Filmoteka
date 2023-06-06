@@ -71,15 +71,23 @@ CREATE TABLE IF NOT EXISTS public.films
 (
     film_id serial NOT NULL,
     type_id integer NOT NULL,
-    average_rating double precision,
+    kp_rating double precision,
     name character varying(20) COLLATE pg_catalog."default" NOT NULL,
-    duration time without time zone NOT NULL,
-    release_year date NOT NULL,
+    duration smallint,
+    release_year smallint,
     budget integer,
     distributor character varying(30) COLLATE pg_catalog."default",
     user_mark smallint,
-    type character varying(20) COLLATE pg_catalog."default",
     seasons_number integer,
+    imdb_rating double precision,
+    imdb_votes integer,
+    kp_votes integer,
+    description text COLLATE pg_catalog."default",
+    kp_id integer,
+    poster character varying(100) COLLATE pg_catalog."default",
+    short_desc character varying(100) COLLATE pg_catalog."default",
+    start_series smallint,
+    end_series smallint,
     CONSTRAINT films_pkey PRIMARY KEY (film_id, type_id)
 );
 
@@ -119,7 +127,7 @@ CREATE TABLE IF NOT EXISTS public.shelved_films
 
 CREATE TABLE IF NOT EXISTS public.type
 (
-    type_id serial NOT NULL,
+    type_id smallint,
     type_name character varying(20) COLLATE pg_catalog."default",
     CONSTRAINT type_pkey PRIMARY KEY (type_id)
 );
@@ -142,131 +150,131 @@ CREATE TABLE IF NOT EXISTS public.watched_films
 
 ALTER TABLE IF EXISTS public.abandoned_films
     ADD CONSTRAINT abandoned_films_film_id_type_id_fkey FOREIGN KEY (film_id, type_id)
-    REFERENCES public.films (film_id, type_id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION;
+        REFERENCES public.films (film_id, type_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION;
 
 
 ALTER TABLE IF EXISTS public.abandoned_films
     ADD CONSTRAINT abandoned_films_user_id_fkey FOREIGN KEY (user_id)
-    REFERENCES public."User" (user_id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION;
+        REFERENCES public."User" (user_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION;
 
 
 ALTER TABLE IF EXISTS public.comments
     ADD CONSTRAINT comments_film_id_type_id_fkey FOREIGN KEY (film_id, type_id)
-    REFERENCES public.films (film_id, type_id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION;
+        REFERENCES public.films (film_id, type_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION;
 
 
 ALTER TABLE IF EXISTS public.comments
     ADD CONSTRAINT comments_user_id_fkey FOREIGN KEY (user_id)
-    REFERENCES public."User" (user_id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION;
+        REFERENCES public."User" (user_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION;
 
 
 ALTER TABLE IF EXISTS public.film_facts
     ADD CONSTRAINT film_facts_film_id_type_id_fkey FOREIGN KEY (film_id, type_id)
-    REFERENCES public.films (film_id, type_id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION;
+        REFERENCES public.films (film_id, type_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION;
 CREATE INDEX IF NOT EXISTS film_facts_pkey
     ON public.film_facts(film_id, type_id);
 
 
 ALTER TABLE IF EXISTS public.film_member
     ADD CONSTRAINT film_member_film_id_type_id_fkey FOREIGN KEY (film_id, type_id)
-    REFERENCES public.films (film_id, type_id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION;
+        REFERENCES public.films (film_id, type_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION;
 
 
 ALTER TABLE IF EXISTS public.films
     ADD CONSTRAINT films_type_id_fkey FOREIGN KEY (type_id)
-    REFERENCES public.type (type_id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION;
+        REFERENCES public.type (type_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION;
 
 
 ALTER TABLE IF EXISTS public.planed_films
     ADD CONSTRAINT planed_films_film_id_type_id_fkey FOREIGN KEY (film_id, type_id)
-    REFERENCES public.films (film_id, type_id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION;
+        REFERENCES public.films (film_id, type_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION;
 
 
 ALTER TABLE IF EXISTS public.planed_films
     ADD CONSTRAINT planed_films_user_id_fkey FOREIGN KEY (user_id)
-    REFERENCES public."User" (user_id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION;
+        REFERENCES public."User" (user_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION;
 
 
 ALTER TABLE IF EXISTS public.season_info
     ADD CONSTRAINT season_info_film_id_type_id_fkey FOREIGN KEY (film_id, type_id)
-    REFERENCES public.films (film_id, type_id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION;
+        REFERENCES public.films (film_id, type_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION;
 CREATE INDEX IF NOT EXISTS season_info_pkey
     ON public.season_info(film_id, type_id);
 
 
 ALTER TABLE IF EXISTS public.selection_of_films
     ADD CONSTRAINT selection_of_films_film_id_type_id_fkey FOREIGN KEY (film_id, type_id)
-    REFERENCES public.films (film_id, type_id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION;
+        REFERENCES public.films (film_id, type_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION;
 
 
 ALTER TABLE IF EXISTS public.selection_of_films
     ADD CONSTRAINT selection_of_films_user_id_fkey FOREIGN KEY (user_id)
-    REFERENCES public."User" (user_id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION;
+        REFERENCES public."User" (user_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION;
 
 
 ALTER TABLE IF EXISTS public.shelved_films
     ADD CONSTRAINT shelved_films_film_id_type_id_fkey FOREIGN KEY (film_id, type_id)
-    REFERENCES public.films (film_id, type_id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION;
+        REFERENCES public.films (film_id, type_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION;
 
 
 ALTER TABLE IF EXISTS public.shelved_films
     ADD CONSTRAINT shelved_films_user_id_fkey FOREIGN KEY (user_id)
-    REFERENCES public."User" (user_id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION;
+        REFERENCES public."User" (user_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION;
 
 
 ALTER TABLE IF EXISTS public.user_friends
     ADD CONSTRAINT user_friends_user_id_fkey FOREIGN KEY (user_id)
-    REFERENCES public."User" (user_id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION;
+        REFERENCES public."User" (user_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION;
 
 
 ALTER TABLE IF EXISTS public.user_friends
     ADD CONSTRAINT user_friends_user_id_fkey1 FOREIGN KEY (user_id)
-    REFERENCES public."User" (user_id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION;
+        REFERENCES public."User" (user_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION;
 
 
 ALTER TABLE IF EXISTS public.watched_films
     ADD CONSTRAINT watched_films_film_id_type_id_fkey FOREIGN KEY (film_id, type_id)
-    REFERENCES public.films (film_id, type_id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION;
+        REFERENCES public.films (film_id, type_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION;
 
 
 ALTER TABLE IF EXISTS public.watched_films
     ADD CONSTRAINT watched_films_user_id_fkey FOREIGN KEY (user_id)
-    REFERENCES public."User" (user_id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION;
+        REFERENCES public."User" (user_id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION;
 
 END;

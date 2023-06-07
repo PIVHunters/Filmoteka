@@ -26,16 +26,7 @@ const Auth = observer(() => {
     };
 
     const signIn = async () =>{
-            let data;
-            if(isLogin){
-                console.log('Это логин')
-                data = await login(nickname,password);
-                user.setIsAuth(data)
-            }else{
-                data = await registration(nickname,password,email);
-                user.setIsAuth(data)
-            }
-            user.setUser({data})
+
             user.setIsAuth(true)
             navigate(MAIN_ROUTE)
 

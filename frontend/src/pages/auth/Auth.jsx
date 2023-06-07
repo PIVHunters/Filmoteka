@@ -26,29 +26,22 @@ const Auth = observer(() => {
     };
 
     const signIn = async () =>{
-        try{
             let data;
             if(isLogin){
                 console.log('Это логин')
                 data = await login(nickname,password);
-                console.log(data)
+                user.setIsAuth(data)
             }else{
                 data = await registration(nickname,password,email);
-                console.log(data)
+                user.setIsAuth(data)
             }
             user.setUser({data})
             user.setIsAuth(true)
             navigate(MAIN_ROUTE)
-        }catch (e){
-            setError("Ошибка")
-        }
 
     }
     const handleSubmit = async (e) => {
-        e.preventDefault();
-            // отправляем данные на сервер или выполняем другие действия
-            console.log('Nick пользователя:', nickname);
-            await signIn().then(r => console.log('Пользователь успешно создан'))
+            await signIn();
 
     };
     const unsetVars =()=>{

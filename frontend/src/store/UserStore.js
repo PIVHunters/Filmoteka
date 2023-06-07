@@ -4,7 +4,9 @@ import avatar from "../images/Avatar.png"
 export default class UserStore {
     constructor() {
         this._isAuth = false
-        this._data = {}
+        this._data = {
+            id: 1, nickname: "INVOIDER", photo: avatar
+        }
         this._activity = [40, 16, 9, 4, 8, 2, 21, 16]
         this._favourite = [1, 6, 15, 22, 39, 44, 50, 66]
         this._history = [{

@@ -2,7 +2,7 @@ import React from 'react';
 import Carousel from "../components/UI/carousel/Carousel";
 import News from "../components/UI/news/News";
 
-const Main = () => {
+const MainPage = () => {
     return (
         <section>
             <Carousel header="Фильмы в прокате"/>
@@ -12,4 +12,4 @@ const Main = () => {
     );
 };
 
-export default Main;
+export default MainPage;

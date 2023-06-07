@@ -1,10 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import cl from "./UserProfile.module.css"
 import HistoryItem from "../../components/UI/historyItem/HistoryItem";
 import StatsBar from "../../components/UI/statsBar/StatsBar";
 import Carousel from "../../components/UI/carousel/Carousel";
+import {observer} from "mobx-react-lite";
+import {Context} from "../../index";
 
-const UserProfile = (props) => {
+const UserProfile = observer(() => {
+
+    const {user} = useContext(Context)
+
     return (
         <section className={cl.wrapper}>
             <div className={cl.history}>
@@ -15,11 +20,9 @@ const UserProfile = (props) => {
             </div>
             <div className={cl.info}>
                 <div className={cl["avatar-wrapper"]}>
-                    <img className={cl.avatar} src={props.avatar} alt="avatar"/>
+                    <img className={cl.avatar} src={user.data.photo} alt="avatar"/>
                 </div>
-                <div className={cl.nickname}>{props.nickname}</div>
-                <span className={cl.data}>{props.gender}</span>
-                <span className={cl.data}>{props.age} года</span>
+                <div className={cl.nickname}>{user.data.nickname}</div>
             </div>
             <StatsBar title={"Фильмы"}/>
             <StatsBar title={"Сериалы"}/>
@@ -30,6 +33,6 @@ const UserProfile = (props) => {
             <Carousel header={"Любимые сериалы"}/>
         </section>
     );
-};
+});
 
 export default UserProfile;

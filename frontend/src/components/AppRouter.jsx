@@ -1,30 +1,29 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Route, Routes} from "react-router-dom";
-import Main from "../pages/Main";
+import MainPage from "../pages/MainPage";
 import Films from "../pages/Films";
-import Error from "../pages/error/Error";
 import FilmPage from "../pages/filmPage/FilmPage";
-import SignIn from "../pages/signIn/SignIn";
+import Auth from "../pages/auth/Auth";
 import UserProfile from "../pages/userProfile/UserProfile";
-import avatar from "../images/Avatar.png";
+import {authRoutes, publicRoutes} from "../routes";
+import {Context} from "../index";
 
 /**
  * Компонент, отвечающий за настройку маршрутов сайты
  * @returns {JSX.Element} HTML-код компонента
  */
 const AppRouter = () => {
+    const {user} = useContext(Context)
+
     return (
         <Routes>
-            <Route path="/main" element={<Main/>} />
-            <Route path="/" element={<Main/>} />
-            <Route path="/films" element={<Films title={"Фильмы"}/>} />
-            <Route path="/serials" element={<Films title={"Сериалы"}/>} />
-            <Route path="*" element={<Error/>} />
-            <Route path="/film_page" element={<FilmPage/>} />
-            <Route path="/sign_in" element={<SignIn />} />
-            <Route path="/user_profile" element={<UserProfile />}/>
-            <Route path="/films/:id" element={<FilmPage />} />
-            {/*<Route path="/news/:id" element={""} /> ПОФИКСИТЬ*/}
+            {user.isAuth && authRoutes.map(({path, Component}) =>
+                <Route path={path} element={Component} key={path} exact/>
+            )}
+            {publicRoutes.map(({path, Component}) =>
+                <Route path={path} element={Component} key={path} exact/>
+            )}
+            <Route path="*" element={<MainPage />} />
         </Routes>
     );
 };

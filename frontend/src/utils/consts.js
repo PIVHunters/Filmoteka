@@ -1,0 +1,8 @@
+export const ADMIN_ROUTE = '/admin'
+export const LOGIN_ROUTE = '/login'
+export const REGISTRATION_ROUTE = '/registration'
+export const MAIN_ROUTE = '/'
+export const FILMS_ROUTE = '/films'
+export const SERIALS_ROUTE = '/serials'
+export const FILM_ROUTE = '/films/:id'
+export const USER_ROUTE = '/user_profile'

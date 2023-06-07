@@ -1,8 +1,0 @@
-.error__wrapper {
-    display: flex;
-    justify-content: center;
-}
-
-.error__header {
-    color: var(--text-color);
-}

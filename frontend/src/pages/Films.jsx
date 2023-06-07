@@ -1,10 +1,10 @@
 import React from 'react';
 import FilmsList from "../components/UI/filmsList/FilmsList";
 
-const Films = (props) => {
+const Films = ({title}) => {
     return (
         <section>
-            <FilmsList title={props.title}/>
+            <FilmsList title={title}/>
         </section>
     );
 };

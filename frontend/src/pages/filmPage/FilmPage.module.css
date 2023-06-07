@@ -12,7 +12,6 @@
 .full-info-wrapper {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 36px;
 }
 
 .left-info{
@@ -65,4 +64,14 @@
 
 .description__text {
 
+}
+
+.favourite {
+    background-color: transparent;
+    border: none;
+    font-size: 40px;
+}
+
+.favourite:hover {
+    cursor: pointer;
 }

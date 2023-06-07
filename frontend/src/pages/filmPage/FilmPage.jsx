@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import cl from "./FilmPage.module.css"
 import {useParams} from "react-router-dom";
 import img from "../../images/Group1.png";
@@ -7,6 +7,7 @@ import {observer} from "mobx-react-lite";
 
 const FilmPage = observer(() => {
     // fetchOneFilm(id).then(data => setFilm(data))
+    const [favourite, setFavourite] = useState("✩")
 
     const {film} = useContext(Context)
 
@@ -47,6 +48,7 @@ const FilmPage = observer(() => {
                     <div className={cl.rating}>IMDb: {film.selectedFilm.imdb_rating}</div>
                 </div>
             </div>
+            <button className={cl.favourite} title={"Добавить в избранное"} onClick={() => setFavourite("★")} on>{favourite}</button>
             <div className={cl.description}>
                 <div className={cl.text__title}>Описание</div>
                 <div className={cl.description__text}>

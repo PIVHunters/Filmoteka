@@ -15,7 +15,7 @@ const UserProfile = observer(() => {
             <div className={cl.history}>
                 <div className={cl.history__title}>История просмотров</div>
                 {user.history.map((item) =>
-                    <HistoryItem id={item.id} look={item.look} date={item.date} key={item}/>
+                    <HistoryItem id={item.id} look={item.look} date={item.date} key={item.id}/>
                 )}
 
             </div>

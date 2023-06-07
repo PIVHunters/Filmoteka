@@ -1,10 +1,11 @@
 import React, {useContext} from 'react';
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import cl from "./Header.module.css";
 import {observer} from "mobx-react-lite";
 import {Context} from "../../../index";
 import avatar from "../../../images/Avatar.png"
 import {FILMS_ROUTE, LOGIN_ROUTE, MAIN_ROUTE, SERIALS_ROUTE} from "../../../utils/consts";
+import {USER_ROUTE} from "../../../utils/consts";
 
 /**
  * Шапка страницы
@@ -12,6 +13,8 @@ import {FILMS_ROUTE, LOGIN_ROUTE, MAIN_ROUTE, SERIALS_ROUTE} from "../../../util
  */
 const Header = observer(() => {
     const {user} = useContext(Context)
+
+    const history = useNavigate()
 
     return (
         <header className={cl.header}>
@@ -33,7 +36,7 @@ const Header = observer(() => {
                         <p className={cl.header__link__text}>Вход</p>
                     </Link>
                     :
-                    <button className={cl.header__profile} onClick={() => "history()"}>
+                    <button className={cl.header__profile} onClick={() => history(USER_ROUTE)}>
                         <div className={cl.image_wrapper}>
                             <img className={cl.avatar} src={user.data.photo} alt={"avatar"}/>
                         </div>

@@ -14,9 +14,10 @@ const UserProfile = observer(() => {
         <section className={cl.wrapper}>
             <div className={cl.history}>
                 <div className={cl.history__title}>История просмотров</div>
-                <HistoryItem />
-                <HistoryItem />
-                <HistoryItem />
+                {user.history.map((item) =>
+                    <HistoryItem id={item.id} look={item.look} date={item.date} key={item}/>
+                )}
+
             </div>
             <div className={cl.info}>
                 <div className={cl["avatar-wrapper"]}>
@@ -27,10 +28,10 @@ const UserProfile = observer(() => {
             <StatsBar title={"Фильмы"}/>
             <StatsBar title={"Сериалы"}/>
             <div className={cl["active-time"]}>
-                Общее время активности: 10 лет 2 дня
+                Общее время активности: {`${user.activity[6]} день и ${user.activity[7]} часов`}
             </div>
-            <Carousel header={"Любимые фильмы"}/>
-            <Carousel header={"Любимые сериалы"}/>
+            {/*<Carousel header={"Любимые фильмы"}/>*/}
+            {/*<Carousel header={"Любимые сериалы"}/>*/}
         </section>
     );
 });

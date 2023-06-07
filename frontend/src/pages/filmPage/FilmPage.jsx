@@ -1,12 +1,9 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useEffect} from 'react';
 import cl from "./FilmPage.module.css"
 import {useParams} from "react-router-dom";
-import {fetchOneFilm} from "../../http/filmAPI";
 import img from "../../images/Group1.png";
 import {Context} from "../../index";
-import {observe} from "mobx";
 import {observer} from "mobx-react-lite";
-import films from "../Films";
 
 const FilmPage = observer(() => {
     // fetchOneFilm(id).then(data => setFilm(data))
@@ -28,7 +25,7 @@ const FilmPage = observer(() => {
     return (
         <section>
             <div className={cl.title}>{film.selectedFilm.name}</div>
-            <div className={cl.breadcrumbs}>Сериалы / Драма</div>
+            <div className={cl.breadcrumbs}>Фильмы / Драма</div>
             <div className={cl["full-info-wrapper"]}>
                 <div className={cl["left-info"]}>
                     <div className={cl["picture-wrapper"]}>
@@ -36,11 +33,11 @@ const FilmPage = observer(() => {
                     </div>
                     <div className={cl.info}>
                         <div className={cl.text__title}>Информация</div>
-                        <div className={cl.info__text}>Тип: {film.selectedFilm.type}</div>
-                        <div className={cl.info__text}>Жанр: {""}</div>
-                        <div className={cl.info__text}>Сезоны: {film.selectedFilm.seasons_number}</div>
+                        <div className={cl.info__text}>Тип: {"Фильм"}</div>
+                        <div className={cl.info__text}>Жанр: {"Драма, фэнтези, криминал"}</div>
+                        {/*<div className={cl.info__text}>Сезоны: {film.selectedFilm.seasons_number}</div>*/}
                         <div className={cl.info__text}>Длительность: {film.selectedFilm.duration}</div>
-                        <div className={cl.info__text}>Возраст: 0+</div>
+                        <div className={cl.info__text}>Возраст: 16+</div>
                         <div className={cl.info__text}>Премьера в мире: {film.selectedFilm.release_year}</div>
                     </div>
                 </div>

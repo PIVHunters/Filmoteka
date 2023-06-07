@@ -7,13 +7,14 @@
 }
 
 .pic-wrapper {
-    width: 16%;
+    width: 48px;
     overflow: hidden;
-    margin-right: 6%;
+    margin-right: 18px;
 }
 
 .pic {
-    width: 100%;
+    width: 48px;
+    height: 72px;
 }
 
 .title {
